@@ -1,8 +1,8 @@
 public class Alphabet {
-    private static final String UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
-    private static final String NUMBERS = "0123456789";
-    private static final String SYMBOLS = "!@#$%^&*()-_=+/~?";
+    public static final String UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
+    public static final String NUMBERS = "0123456789";
+    public static final String SYMBOLS = "!@#$%^&*()-_=+/~?";
 
     private final StringBuilder storage;
 
