@@ -45,7 +45,6 @@ public class Password {
         boolean usedNum = false;
         boolean usedSymb = false;
         int type;
-        int score = 0;
 
         for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
@@ -64,9 +63,7 @@ public class Password {
                 usedSymb = true;
         }
 
-        score = calculateScore(password, usedUpper, userLower, usedNum, usedSymb);
-
-        return score;
+        return calculateScore(password, usedUpper, userLower, usedNum, usedSymb);
     }
 
     private int calculateScore(String password, boolean usedUpper, boolean userLower, boolean usedNum, boolean usedSymb) {
