@@ -73,7 +73,8 @@ public class Generator {
     }
 
     private void passwordRequestError(String i) {
-
+        if (!i.equalsIgnoreCase("yes") && !i.equalsIgnoreCase("no"))
+            System.out.println("You have entered something incorrect");
     }
 
     private void checkPassword() {
