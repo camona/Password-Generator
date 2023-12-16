@@ -8,8 +8,8 @@ public class Generator {
         keyboard = scanner;
     }
 
-    public Generator(boolean includeUpper, boolean includeLower, boolean indcludeNum, boolean indcludeSymb) {
-        alphabet = new Alphabet(includeUpper, includeLower, indcludeNum, indcludeSymb);
+    public Generator(boolean includeUpper, boolean includeLower, boolean includeNum, boolean indcludeSymb) {
+        alphabet = new Alphabet(includeUpper, includeLower, includeNum, indcludeSymb);
     }
 
     public void mainLoop() {
