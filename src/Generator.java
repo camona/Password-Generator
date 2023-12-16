@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Generator {
     Alphabet alphabet;
-    private static Scanner keyboard;
+    private Scanner keyboard;
 
     public Generator(Scanner scanner) {
         keyboard = scanner;
@@ -63,7 +63,74 @@ public class Generator {
     }
 
     private void requestPassword() {
+        boolean includeUpper = false;
+        boolean includeLower = false;
+        boolean includeNum = false;
+        boolean includeSymb = false;
+        boolean noneSelected;
 
+        System.out.println();
+        System.out.println("Hello, welcome to the Password Generator. Answer the following questions by 'yes' or 'no'");
+
+        do {
+            String input;
+            noneSelected = false;
+
+            do {
+                System.out.println("Do you want lowercase letters to be used?");
+                input = keyboard.next();
+                passwordRequestError(input);
+            }
+            while (wrongUserInput(input));
+
+            if (isInclude(input))
+                includeLower = true;
+
+            do {
+                System.out.println("Do you want uppercase letters to be used?");
+                input = keyboard.next();
+                passwordRequestError(input);
+            }
+            while (wrongUserInput(input));
+
+            if (isInclude(input))
+                includeUpper = true;
+
+            do {
+                System.out.println("Do you want numbers to be used?");
+                input = keyboard.next();
+                passwordRequestError(input);
+            }
+            while (wrongUserInput(input));
+
+            if (isInclude(input))
+                includeNum = true;
+
+            do {
+                System.out.println("Do you want symbols to be used?");
+                input = keyboard.next();
+                passwordRequestError(input);
+            }
+            while (wrongUserInput(input));
+
+            if (isInclude(input))
+                includeSymb = true;
+
+            // None above selected
+            if (!includeUpper && !includeLower && !includeNum && !includeSymb) {
+                System.out.println("You haven't selected any characters to generated your password. At least one of your answers should be 'yes'");
+                noneSelected = true;
+            }
+        }
+        while (noneSelected);
+
+        System.out.println("Great! Now enter the length of your password");
+        int length = keyboard.nextInt();
+
+        final Generator generator = new Generator(includeUpper, includeLower, includeNum, includeSymb);
+        final Password password = generator.generatePassword(length);
+
+        System.out.println("Your generated password: " + password);
     }
 
     private boolean isInclude(String input) {
@@ -72,8 +139,12 @@ public class Generator {
         return false;
     }
 
-    private void passwordRequestError(String i) {
-        if (!i.equalsIgnoreCase("yes") && !i.equalsIgnoreCase("no"))
+    private boolean wrongUserInput(String input) {
+        return !input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no");
+    }
+
+    private void passwordRequestError(String input) {
+        if (!input.equalsIgnoreCase("yes") && !input.equalsIgnoreCase("no"))
             System.out.println("You have entered something incorrect");
     }
 
