@@ -47,6 +47,8 @@ public class Generator {
                     printMenu();
             }
         }
+
+        keyboard.close();
     }
 
     private Password generatePassword(int length) {
