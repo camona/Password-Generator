@@ -25,9 +25,26 @@ public class Generator {
                 case "1":
                     requestPassword();
                     printMenu();
+                    break;
 
                 case "2":
+                    checkPassword();
+                    printMenu();
+                    break;
 
+                case "3":
+                    printUsefulInfo();
+                    printMenu();
+                    break;
+
+                case "4":
+                    printQuitMessage();
+                    break;
+
+                default:
+                    System.out.println();
+                    System.out.println("Select one of the available commands");
+                    printMenu();
             }
         }
     }
